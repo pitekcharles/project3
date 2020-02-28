@@ -1,0 +1,24 @@
+data structure
+
+user table
+    id = key, unique
+    username = unique string
+    password    
+
+Character
+    id = key, unique
+    character name
+    server name
+    class
+    user id
+    attendence ontime score
+    attendence late score
+    attendence absent score
+    attendence leave early score
+
+guild
+    id = key unique
+    guild name
+    server name
+    guild master id
+
