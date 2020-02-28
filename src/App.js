@@ -1,8 +1,11 @@
 import React from "react";
+import HeroWrapper from "./Components/HeroWrapper";
+import "./App.sass"
+
 
 function App() {
     return (
-        <p>testing!</p>
+        <HeroWrapper />
     );
 }
 
