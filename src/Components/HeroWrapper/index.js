@@ -1,5 +1,4 @@
 import React from "react";
-
  
 function HeroWrapper() {
     return (
@@ -7,10 +6,10 @@ function HeroWrapper() {
             <div className="hero-body">
                 <div className="container">
                     <h1 className="title">
-                        Primary bold title
+                        Guild Assistant
                     </h1>
                     <h2 className="subtitle">
-                        Primary bold subtitle
+                        Your site for all guild management needs!
                     </h2>
                 </div>
             </div>
