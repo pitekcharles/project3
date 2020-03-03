@@ -1,11 +1,12 @@
 import React from "react";
-import HeroWrapper from "../Components/HeroWrapper";
 import FormWrapper from "../Components/FormWrapper";
 import Label from "../Components/Label";
 import Input from "../Components/Input";
 import Button from "../Components/Button";
 import HeroTitle from "../Components/HeroTitle";
+import HeroWrapper from "../Components/HeroWrapper";
 import HeroSubtitle from "../Components/HeroSubtitle";
+import { Link } from "react-router-dom";
 
 function Home() {
     return (
@@ -19,7 +20,7 @@ function Home() {
                 </HeroSubtitle>
             </HeroWrapper>
             <br />
-            <div class="columns">
+            <div className="columns">
                 <div class="column">
                     <div className="box">
                         <HeroWrapper>
@@ -31,7 +32,7 @@ function Home() {
                         Add description here.
                     </div>
                 </div>
-                <div class="column">
+                <div className="column">
                     <FormWrapper>
                         <HeroWrapper>
                             <HeroTitle>
@@ -49,7 +50,8 @@ function Home() {
                         </Label>
                         <Input placeholder="Password" />
                         <br />
-                        <Button>Login</Button>
+                        <Button>Login</Button> 
+                        <Link to="/signup"><Button>Sign Up</Button></Link>
                     </FormWrapper>
                 </div>
 
