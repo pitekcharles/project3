@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.about {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+}
+
+.login {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+}

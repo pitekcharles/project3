@@ -5,6 +5,7 @@ import FormWrapper from "./Components/FormWrapper";
 import Input from "./Components/Input";
 import Label from "./Components/Label";
 import NavBarWrapper from "./Components/NavBarWrapper";
+import Home from "./components/pages/Home";
 
 
 function App() {
