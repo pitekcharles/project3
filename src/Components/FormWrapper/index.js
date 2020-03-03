@@ -1,11 +1,13 @@
 import React from "react";
 
-function FormWrapper() {
+function FormWrapper({ children }) {
     return (
-        <div className="field">
-            testing! formwarpper
+        <div className="box">
+            <div className="field">
+                {children}
+            </div>
         </div>
-            )
-        } 
-        
+    )
+}
+
 export default FormWrapper;
