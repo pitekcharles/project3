@@ -6,7 +6,6 @@ import Button from "../Components/Button";
 import HeroTitle from "../Components/HeroTitle";
 import HeroWrapper from "../Components/HeroWrapper";
 import HeroSubtitle from "../Components/HeroSubtitle";
-import { Form } from "react-bulma-components";
 
 function SignUp() {
     return (
