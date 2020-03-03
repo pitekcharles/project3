@@ -7,8 +7,19 @@ import HeroTitle from "../Components/HeroTitle";
 import HeroWrapper from "../Components/HeroWrapper";
 import HeroSubtitle from "../Components/HeroSubtitle";
 import { Link } from "react-router-dom";
+import passport, {LocalStrategy} from "passport";
 
 function Home() {
+    // passport.use(new LocalStrategy(
+    //     function (username, password, done) {
+    //         username.findOne({username: username }, function(err, user){
+    //             if (err) {return done (err); }
+    //             if (!user) {return done (null, false); }
+    //             if(!user.verifyPassword(password)) {return done(null, false); }
+    //             return done (null, user);
+    //         })
+    //     }
+    // ))
     return (
         <>
             <HeroWrapper>
