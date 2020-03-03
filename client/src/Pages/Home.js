@@ -21,7 +21,7 @@ function Home() {
             </HeroWrapper>
             <br />
             <div className="columns">
-                <div class="column">
+                <div className="column">
                     <div className="box">
                         <HeroWrapper>
                             <HeroTitle>
