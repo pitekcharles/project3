@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 
 function NavBarWrapper ({ children }) {
     return (
@@ -6,7 +6,7 @@ function NavBarWrapper ({ children }) {
             <nav className="navbar" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                     <a className="navbar-item" href="">
-                        Guild assistant
+                        Guild Assistant
                     </a>
                     {children}
                 </div>
