@@ -1,20 +1,20 @@
 const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
-const db = require("../models");
+// const db = require("../models");
 
-router.get("/test", (req, res) => {
-    db.Character.find()
-    .then(characters => res.json(characters))
-    .catch(err => console.log(err))
-})
+// router.get("/test", (req, res) => {
+//     db.Guild.find()
+//     .then(guilds => res.json(guilds))
+//     .catch(err => console.log(err))
+// })
 
-router.post("/test", (req, res) => {
-    console.log("string hit")
-    db.Character.create(req.body)
-    .then(character => res.json(character))
-    .catch(err => console.log(err))
-})
+// router.post("/test", (req, res) => {
+//     console.log("string hit")
+//     db.Guild.create(req.body)
+//     .then(guild => res.json(guild))
+//     .catch(err => console.log(err))
+// })
 
 
 //API Routes
