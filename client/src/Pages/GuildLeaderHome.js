@@ -2,6 +2,7 @@ import React from "react";
 import HeroTitle from "../Components/HeroTitle";
 import HeroWrapper from "../Components/HeroWrapper";
 import HeroSubtitle from "../Components/HeroSubtitle";
+import AttendenceWrapper from "../Components/AttendenceWrapper";
 
 function GuildLeaderHome() {
     return (
@@ -29,25 +30,22 @@ function GuildLeaderHome() {
                 </div>
             </div>
             <div className="columns">
-                <div className="column is-5 is-offset-1">
+                <div className="column is-6 is-offset-1">
                     <div className="box">
                         <HeroWrapper>
                             <HeroTitle>
                                 Attendence
                             </HeroTitle>
-                            <HeroSubtitle>
-                            </HeroSubtitle>
                         </HeroWrapper>
+                        <AttendenceWrapper />
                     </div>
                 </div>
-                <div className="column is-5">
+                <div className="column is-4">
                     <div className="box">
                         <HeroWrapper>
                             <HeroTitle>
                                 Raid Schedule
                             </HeroTitle>
-                            <HeroSubtitle>
-                            </HeroSubtitle>
                         </HeroWrapper>
                     </div>
                 </div>
