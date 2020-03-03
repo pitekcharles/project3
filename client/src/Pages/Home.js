@@ -43,12 +43,12 @@ function Home() {
                         <Label>
                             Username:
                         </Label>
-                        <Input placeholder="Username" />
+                        <Input placeholder="Username" dataValue="username" />
                         <br />
                         <Label>
                             Password:
                         </Label>
-                        <Input placeholder="Password" />
+                        <Input placeholder="Password" dataValue="password" />
                         <br />
                         <Button>Login</Button> 
                         <Link to="/signup"><Button>Sign Up</Button></Link>
