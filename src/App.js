@@ -1,26 +1,22 @@
 import React from "react";
 import HeroWrapper from "./Components/HeroWrapper";
-// import "./App.sass"
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import FormWrapper from "./Components/FormWrapper";
 import Input from "./Components/Input";
 import Label from "./Components/Label";
 import NavBarWrapper from "./Components/NavBarWrapper";
-import Home from "./components/pages/Home";
+import Home from "./Pages/Home";
 
 
 function App() {
     return (
         <>
-            <NavBarWrapper />
-            <HeroWrapper />
-            <div className="box">
-                <FormWrapper>
-                    <Label>
-                        test label
-                    </Label>
-                    <Input placeholder="testing" />
-                </FormWrapper>
-            </div>
+            <Router>
+                <div>
+                    <NavBarWrapper />
+                    <Route exact path="/" component={Home} />
+                </div>
+            </Router>
         </>
     );
 }
