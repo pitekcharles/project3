@@ -8,7 +8,9 @@ import HeroWrapper from "../Components/HeroWrapper";
 import HeroSubtitle from "../Components/HeroSubtitle";
 import { Link } from "react-router-dom";
 
+
 function Home() {
+   
     return (
         <>
             <HeroWrapper>
@@ -21,7 +23,7 @@ function Home() {
             </HeroWrapper>
             <br />
             <div className="columns">
-                <div class="column">
+                <div className="column">
                     <div className="box">
                         <HeroWrapper>
                             <HeroTitle>
@@ -29,7 +31,7 @@ function Home() {
                             </HeroTitle>
                         </HeroWrapper>
 
-                        Add description here.
+                        This application is designed to be a one stop shop for all things gaming. Upon entering your login credentials, you will be able to mark yourself present for any and all guild related activities. The Guild Master (GM) will be able to post anything that may be applicable to the group as a whole. 
                     </div>
                 </div>
                 <div className="column">
@@ -43,12 +45,12 @@ function Home() {
                         <Label>
                             Username:
                         </Label>
-                        <Input placeholder="Username" />
+                        <Input placeholder="Username" dataValue="username" />
                         <br />
                         <Label>
                             Password:
                         </Label>
-                        <Input placeholder="Password" />
+                        <Input placeholder="Password" dataValue="password" />
                         <br />
                         <Button>Login</Button> 
                         <Link to="/signup"><Button>Sign Up</Button></Link>

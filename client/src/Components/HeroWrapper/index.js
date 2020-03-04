@@ -1,6 +1,4 @@
 import React from "react";
-import HeroTitle from "../HeroTitle";
-import HeroSubtitle from "../HeroSubtitle";
  
 function HeroWrapper({ children }) {
     return (
