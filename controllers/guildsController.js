@@ -1,6 +1,6 @@
 const db = require("../models");
 
-// defining methods for userController
+// defining methods for guildController
 module.exports = {
     findAll: function (req, res) {
         db.Guild
