@@ -2,20 +2,54 @@ import React, { Component } from "react";
 import HeroTitle from "../Components/HeroTitle";
 import HeroWrapper from "../Components/HeroWrapper";
 import HeroSubtitle from "../Components/HeroSubtitle";
-import AttendenceWrapper from "../Components/AttendenceWrapper";
 import Button from "../Components/Button";
+import FormWrapper from "../Components/FormWrapper";
+import Label from "../Components/Label";
+import Input from "../Components/Input";
+import API from "../utils/API";
 
 class GuildLeaderHome extends Component {
     state = {
         guildMembers: [
             "charles", "ben"
-        ]
+        ],
+        characterName: "",
+        guildName: "",
+        serverName: "",
+        classType: ""
+
 
     };
+
+    handleInputChange = event => {
+        const value = event.target.value;
+        const name = event.target.name;
+        this.setState({
+          [name]: value
+        });
+      };
 
     handleFormSubmit = event => {
         event.preventDefault();
         console.log("go for it")
+    }
+
+    handleCharacterSubmit = event => {
+        event.preventDefault();
+        API.addCharacter({
+            characterName: this.state.characterName,
+            serverName: this.state.serverName,
+            class: this.state.classType,
+            guild: this.state.guildName
+        })
+            .then(res => this.setState({
+                characterName: "",
+                serverName: "",
+                classType: "",
+                guildName: ""
+            }))
+            .catch(err => console.log(err));
+
     }
 
     handleOptionChange = event => {
@@ -57,6 +91,7 @@ class GuildLeaderHome extends Component {
                                     Attendance
                             </HeroTitle>
                             </HeroWrapper>
+                            <br />
                             <ul>
                                 {this.state.guildMembers.map(item => (
                                     <div className="box">
@@ -119,6 +154,50 @@ class GuildLeaderHome extends Component {
                                     Add new character
                                 </HeroTitle>
                             </HeroWrapper>
+                                <br />
+                            <FormWrapper>
+                                <Label>
+                                    Character Name:
+                                </Label>
+                                <Input 
+                                    placeholder="Character Name" 
+                                    name="characterName" 
+                                    handleInputChange={this.handleInputChange} 
+                                    value={this.state.characterName}
+                                />
+                                <br />
+                                <Label>
+                                    Guild Name:
+                                </Label>
+                                <Input 
+                                    placeholder="Guild Name" 
+                                    name="guildName" 
+                                    handleInputChange={this.handleInputChange}
+                                    value={this.state.guildName} 
+                                />
+                                <br />
+                                <Label>
+                                    Server Name:
+                                </Label>
+                                <Input 
+                                    placeholder="Server Name" 
+                                    name="serverName" 
+                                    handleInputChange={this.handleInputChange} 
+                                    value={this.state.serverName}
+                                />
+                                <br />
+                                <Label>
+                                    Class:
+                                </Label>
+                                <Input 
+                                    placeholder="Class" 
+                                    name="classType" 
+                                    handleInputChange={this.handleInputChange} 
+                                    value={this.state.classType}
+                                />
+                                <br />
+                                <Button onClick={this.handleCharacterSubmit}>Add Character</Button>
+                            </FormWrapper>
                         </div>
                     </div>
                 </div>

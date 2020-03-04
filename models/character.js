@@ -6,11 +6,12 @@ const charSchema = new Schema({
     characterName: { type: String, required: true },
     serverName: { type: String, required: true},
     class: { type: String, required: true},
-    userID: { type: String, required: true},
-    attendenceOnTime: { type: String, required: true },
-    attendenceLate: { type: String, required: true },
-    attendenceAbsent: { type: String, required: true},
-    attendenceLeftEarly: { type: String, required: true}
+    guild: {type: String},
+    // userID: { type: String, required: true},
+    // attendenceOnTime: { type: String, required: true },
+    // attendenceLate: { type: String, required: true },
+    // attendenceAbsent: { type: String, required: true},
+    // attendenceLeftEarly: { type: String, required: true}
 });
 
 const Character = mongoose.model("Character", charSchema);
