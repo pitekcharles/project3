@@ -31,17 +31,24 @@ function SignUp() {
                             <Label>
                                 Username:
                             </Label>
-                            <Input placeholder="Username" />
+                            <Input placeholder="Username" dataValue="username" />
                             <br />
                             <Label>
                                 Password:
                             </Label>
-                            <Input placeholder="Password" />
+                            <Input placeholder="Password" dataValue="password" />
                             <br />
                             <Label>
                                 Confirm Password:
                             </Label>
-                            <Input placeholder="Confirm Password" />
+                            <Input placeholder="Confirm Password" dataValue="passwordConfirm" />
+                            <br />
+                            <Label>
+                                Email:
+                            </Label>
+                            <Input placeholder="email" dataValue="email" />
+                            <br />
+                            <Button>Create Account</Button>
                         </FormWrapper>
                     </div>
                 </div>
