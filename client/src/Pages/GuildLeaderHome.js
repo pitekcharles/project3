@@ -1,11 +1,19 @@
-import React from "react";
+import React, { Component } from "react";
 import HeroTitle from "../Components/HeroTitle";
 import HeroWrapper from "../Components/HeroWrapper";
 import HeroSubtitle from "../Components/HeroSubtitle";
 import AttendenceWrapper from "../Components/AttendenceWrapper";
+import Button from "../Components/Button";
 
-function GuildLeaderHome() {
-    return (
+class GuildLeaderHome extends Component {
+    state = {
+        guildMembers: [
+            "charles", "ben"
+        ]
+    };
+    
+    render (){
+        return(
         <>
             <HeroWrapper>
                 <HeroTitle>
@@ -34,24 +42,35 @@ function GuildLeaderHome() {
                     <div className="box">
                         <HeroWrapper>
                             <HeroTitle>
-                                Attendence
+                                Attendance
                             </HeroTitle>
                         </HeroWrapper>
-                        <AttendenceWrapper />
+                        <ul>
+                            {this.state.guildMembers.map(item => (
+                                <>
+                                    <p>{item}</p>
+                                    <AttendenceWrapper name={item.name} />
+                                </>
+                            ))}
+                        </ul>
+                        <br />
+                        <Button>Submit</Button>
                     </div>
                 </div>
                 <div className="column is-4">
                     <div className="box">
                         <HeroWrapper>
                             <HeroTitle>
-                                Raid Schedule
+                                Attendance Score
                             </HeroTitle>
                         </HeroWrapper>
                     </div>
                 </div>
             </div>
         </>
-    );
+        )
+    }
+    
 }
 
 export default GuildLeaderHome;

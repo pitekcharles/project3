@@ -2,11 +2,11 @@ import React from "react";
 import FormWrapper from "../FormWrapper";
 import AttendenceItem from "../AttendenceItem";
 
-function AttendenceWrapper() {
+function AttendenceWrapper({ name }) {
     return (
         <>
             <FormWrapper>
-                <AttendenceItem />
+                <AttendenceItem name={name} />
             </FormWrapper>
         </>
     );

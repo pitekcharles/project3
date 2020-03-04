@@ -5,9 +5,9 @@ function NavBarWrapper ({ children }) {
         <>
             <nav className="navbar" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                    <a className="navbar-item" href="">
+                    <h1 className="navbar-item">
                         Guild Assistant
-                    </a>
+                    </h1>
                     {children}
                 </div>
             </nav>       
