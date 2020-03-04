@@ -52,7 +52,7 @@ function Home() {
                         </Label>
                         <Input placeholder="Password" dataValue="password" />
                         <br />
-                        <Button>Login</Button> 
+                        <Link to="/guildleaderhome"><Button>Login</Button></Link> 
                         <Link to="/signup"><Button>Sign Up</Button></Link>
                     </FormWrapper>
                 </div>

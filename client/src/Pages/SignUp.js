@@ -6,6 +6,7 @@ import Button from "../Components/Button";
 import HeroTitle from "../Components/HeroTitle";
 import HeroWrapper from "../Components/HeroWrapper";
 import HeroSubtitle from "../Components/HeroSubtitle";
+import { Link } from "react-router-dom";
 
 function SignUp() {
     return (
@@ -48,7 +49,8 @@ function SignUp() {
                             </Label>
                             <Input placeholder="email" dataValue="email" />
                             <br />
-                            <Button>Create Account</Button>
+                            <Link to="/guildleaderhome"><Button>Create Account</Button></Link>
+                            
                         </FormWrapper>
                     </div>
                 </div>
