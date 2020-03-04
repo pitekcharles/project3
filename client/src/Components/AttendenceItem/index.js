@@ -1,10 +1,10 @@
 import React from "react";
 
-function AttendenceItem({ name }) {
+function AttendenceItem({ name  }) {
     return (
         <div className="control">
             <label className="radio">
-                <input type="radio" name={name} value="onTime" checked={true} />
+                <input type="radio" name={name} value="onTime"/>
                 On-time
             </label>
             <label className="radio">
