@@ -8,6 +8,6 @@ const guildSchema = new Schema({
     guildMasterID: { type: String, required: true}
 });
 
-const Guild = mongoose.model("Guild", charSchema);
+const Guild = mongoose.model("Guild", guildSchema);
 
 module.exports = Guild;
