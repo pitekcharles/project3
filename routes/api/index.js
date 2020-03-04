@@ -1,8 +1,10 @@
 const router = require("express").Router();
 const userRoutes = require("./users");
+const charRoutes = require("./characters");
 
-// User routes
-// router.use("/users", userRoutes);
+// routes
+router.use("/users", userRoutes);
+router.use("/characters", charRoutes);
 
 
 
