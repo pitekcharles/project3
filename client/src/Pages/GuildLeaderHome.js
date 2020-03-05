@@ -2,20 +2,70 @@ import React, { Component } from "react";
 import HeroTitle from "../Components/HeroTitle";
 import HeroWrapper from "../Components/HeroWrapper";
 import HeroSubtitle from "../Components/HeroSubtitle";
-import AttendenceWrapper from "../Components/AttendenceWrapper";
 import Button from "../Components/Button";
+import FormWrapper from "../Components/FormWrapper";
+import Label from "../Components/Label";
+import Input from "../Components/Input";
+import API from "../utils/API";
 
 class GuildLeaderHome extends Component {
     state = {
-        guildMembers: [
-            "charles", "ben"
-        ]
-
+        guildMembers: [],
+        characterid: [],
+        characterName: "",
+        guildName: "",
+        serverName: "",
+        classType: ""
     };
+
+    componentDidMount() {
+        this.populateAttendanceTracker()
+    }
+
+    handleInputChange = event => {
+        const value = event.target.value;
+        const name = event.target.name;
+        this.setState({
+            [name]: value
+        });
+    };
+
+    populateAttendanceTracker = () => {
+        API.getCharacters()
+            .then(response => {
+                var characterArray = [];
+                var idArray = [];
+                for (var i = 0; i < response.data.length; i++) {
+                    characterArray.push(response.data[i].characterName);
+                    idArray.push(response.data[i]._id)
+                }
+                this.setState({ guildMembers: characterArray })
+                console.log(response);
+            })
+    }
 
     handleFormSubmit = event => {
         event.preventDefault();
         console.log("go for it")
+    }
+
+    handleCharacterSubmit = event => {
+        event.preventDefault();
+        API.addCharacter({
+            characterName: this.state.characterName,
+            serverName: this.state.serverName,
+            class: this.state.classType,
+            guild: this.state.guildName
+        })
+            .then(res => this.setState({
+                characterName: "",
+                serverName: "",
+                classType: "",
+                guildName: ""
+            }))
+            .catch(err => console.log(err));
+        this.populateAttendanceTracker();
+
     }
 
     handleOptionChange = event => {
@@ -57,35 +107,38 @@ class GuildLeaderHome extends Component {
                                     Attendance
                             </HeroTitle>
                             </HeroWrapper>
+                            <br />
                             <ul>
                                 {this.state.guildMembers.map(item => (
-                                    <div className="box">
-                                        <p>{item}</p>
-                                        <div className="field">
-                                            <div className="control">
-                                                <label className="radio">
-                                                    <input type="radio" name={item} value="onTime" />
-                                                    On-time
-                                                </label>
-                                                <label className="radio">
-                                                    <input type="radio" name={item} value="late" />
-                                                    Late
-                                                </label>
-                                                <label className="radio">
-                                                    <input type="radio" name={item} value="earlyLeave" />
-                                                    Early Leave
-                                                </label>
-                                                <label className="radio">
-                                                    <input type="radio" name={item} value="noCallNoShow" />
-                                                    No-call-no-show
-                                                </label>
-                                                <label className="radio">
-                                                    <input type="radio" name={item} value="calledOut" />
-                                                    Called Out
-                                                </label>
+                                    <li>
+                                        <div className="box">
+                                            <p>{item}</p>
+                                            <div className="field">
+                                                <div className="control">
+                                                    <label className="radio">
+                                                        <input type="radio" name={item} value="onTime" />
+                                                        On-time
+                                                    </label>
+                                                    <label className="radio">
+                                                        <input type="radio" name={item} value="late" />
+                                                        Late
+                                                    </label>
+                                                    <label className="radio">
+                                                        <input type="radio" name={item} value="earlyLeave" />
+                                                        Early Leave
+                                                    </label>
+                                                    <label className="radio">
+                                                        <input type="radio" name={item} value="noCallNoShow" />
+                                                        No-call-no-show
+                                                    </label>
+                                                    <label className="radio">
+                                                        <input type="radio" name={item} value="calledOut" />
+                                                        Called Out
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </li>
                                 ))}
                             </ul>
                             <br />
@@ -119,6 +172,50 @@ class GuildLeaderHome extends Component {
                                     Add new character
                                 </HeroTitle>
                             </HeroWrapper>
+                            <br />
+                            <FormWrapper>
+                                <Label>
+                                    Character Name:
+                                </Label>
+                                <Input
+                                    placeholder="Character Name"
+                                    name="characterName"
+                                    handleInputChange={this.handleInputChange}
+                                    value={this.state.characterName}
+                                />
+                                <br />
+                                <Label>
+                                    Guild Name:
+                                </Label>
+                                <Input
+                                    placeholder="Guild Name"
+                                    name="guildName"
+                                    handleInputChange={this.handleInputChange}
+                                    value={this.state.guildName}
+                                />
+                                <br />
+                                <Label>
+                                    Server Name:
+                                </Label>
+                                <Input
+                                    placeholder="Server Name"
+                                    name="serverName"
+                                    handleInputChange={this.handleInputChange}
+                                    value={this.state.serverName}
+                                />
+                                <br />
+                                <Label>
+                                    Class:
+                                </Label>
+                                <Input
+                                    placeholder="Class"
+                                    name="classType"
+                                    handleInputChange={this.handleInputChange}
+                                    value={this.state.classType}
+                                />
+                                <br />
+                                <Button onClick={this.handleCharacterSubmit}>Add Character</Button>
+                            </FormWrapper>
                         </div>
                     </div>
                 </div>
