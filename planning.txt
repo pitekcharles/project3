@@ -21,3 +21,8 @@ guild table
     guild name
     server name
     guild master id
+
+
+switch to buttons to adjust the attendence score, one button adds, one button subtracts. component map to populate the page, already in place easy
+take old attendence score and push it to the db, remove that person from the state to reload section (added bonus) also add a button to populate attendence so 
+it does not have issues/ it is not always there
