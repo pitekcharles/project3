@@ -11,7 +11,6 @@ import API from "../utils/API";
 class GuildLeaderHome extends Component {
     state = {
         guildMembers: [],
-        characterid: [],
         characterName: "",
         guildName: "",
         serverName: "",
@@ -34,10 +33,8 @@ class GuildLeaderHome extends Component {
         API.getCharacters()
             .then(response => {
                 var characterArray = [];
-                var idArray = [];
                 for (var i = 0; i < response.data.length; i++) {
-                    characterArray.push(response.data[i].characterName);
-                    idArray.push(response.data[i]._id)
+                    characterArray.push({ characterName: response.data[i].characterName, characterId: response.data[i]._id, attendanceScore: response.data[i].attendanceScore })
                 }
                 this.setState({ guildMembers: characterArray })
                 console.log(response);
@@ -72,6 +69,11 @@ class GuildLeaderHome extends Component {
         this.setState({
             selectedOption: event.target.value
         })
+    }
+
+    attendanceOnTime = event => {
+        event.preventDefault();
+        
     }
 
     render() {
@@ -110,35 +112,21 @@ class GuildLeaderHome extends Component {
                             <br />
                             <ul>
                                 {this.state.guildMembers.map(item => (
-                                    <li>
-                                        <div className="box">
-                                            <p>{item}</p>
-                                            <div className="field">
-                                                <div className="control">
-                                                    <label className="radio">
-                                                        <input type="radio" name={item} value="onTime" />
-                                                        On-time
-                                                    </label>
-                                                    <label className="radio">
-                                                        <input type="radio" name={item} value="late" />
-                                                        Late
-                                                    </label>
-                                                    <label className="radio">
-                                                        <input type="radio" name={item} value="earlyLeave" />
-                                                        Early Leave
-                                                    </label>
-                                                    <label className="radio">
-                                                        <input type="radio" name={item} value="noCallNoShow" />
-                                                        No-call-no-show
-                                                    </label>
-                                                    <label className="radio">
-                                                        <input type="radio" name={item} value="calledOut" />
-                                                        Called Out
-                                                    </label>
+                                    <>
+                                        <li key={item.characterId}>
+                                            <div className="box" >
+                                                <p>{item.characterName}</p>
+                                                <br />
+                                                <div className="field">
+                                                    <div className="control">
+                                                        <Button type="is-success">On time</Button>
+                                                        <Button type="is-danger">No Show</Button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                        <br />
+                                    </>
                                 ))}
                             </ul>
                             <br />
@@ -150,8 +138,23 @@ class GuildLeaderHome extends Component {
                             <HeroWrapper>
                                 <HeroTitle>
                                     Attendance Score
-                            </HeroTitle>
+                                </HeroTitle>
                             </HeroWrapper>
+                            <br />
+                            <ul>
+                                {this.state.guildMembers.map(item => (
+                                    <>
+                                        <li key={item.characterId}>
+                                            <div className="box">
+                                                <p>Character: {item.characterName}</p>
+                                                <br />
+                                                <p>Attendence Score: {item.attendanceScore}</p>
+                                            </div>
+                                        </li>
+                                        <br />
+                                    </>
+                                ))}
+                            </ul>
                         </div>
                     </div>
                 </div>
