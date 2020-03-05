@@ -7,6 +7,7 @@ const charSchema = new Schema({
     serverName: { type: String, required: true},
     class: { type: String, required: true},
     guild: {type: String},
+    attendanceScore: { type: Number, default: 0}
     // userID: { type: String, required: true},
     // attendenceOnTime: { type: String, required: true },
     // attendenceLate: { type: String, required: true },
