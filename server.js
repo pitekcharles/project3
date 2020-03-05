@@ -4,6 +4,7 @@ const path = require ("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const routes = require("./routes");
+const passport = require("passport");
 
 
 
@@ -15,6 +16,9 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use(routes);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/guildAssistant");
 
