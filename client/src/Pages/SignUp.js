@@ -49,7 +49,7 @@ function SignUp() {
                             </Label>
                             <Input placeholder="email" dataValue="email" />
                             <br />
-                            <Link to="/guildleaderhome"><Button>Create Account</Button></Link>
+                            <Link to="/"><Button>Create Account</Button></Link>
                             
                         </FormWrapper>
                     </div>
