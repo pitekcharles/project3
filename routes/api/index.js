@@ -4,10 +4,10 @@ const charRoutes = require("./characters");
 const guildsRoutes = require("./guilds");
 
 // routes
+router.use("/", authRoutes);
 router.use("/users", userRoutes);
 router.use("/characters", charRoutes);
 router.use("/guilds", guildsRoutes);
-
 
 
 module.exports = router;
