@@ -1,5 +1,5 @@
 module.exports = {
-    User: require("./user"),
+    User: require("./Users"),
     Character: require("./character"),
     Guild: require("./guild")
 };
