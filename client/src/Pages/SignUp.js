@@ -84,12 +84,12 @@ class SignUp extends Component {
                                 <Label>
                                     Password:
                             </Label>
-                                <Input placeholder="Password" dataValue="password" />
+                                <Input placeholder="Password" dataValue="password" type="password" />
                                 <br />
                                 <Label>
                                     Confirm Password:
                             </Label>
-                                <Input placeholder="Confirm Password" dataValue="passwordConfirm" />
+                                <Input placeholder="Confirm Password" dataValue="passwordConfirm" type="password" />
                                 <br />
                                 <Label>
                                     Email:
