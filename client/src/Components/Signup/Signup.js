@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 class Signup extends Component {
     state = {
-        validFirstname: false,
-        validLastname: false,
+        // validFirstname: false,
+        // validLastname: false,
         validEmail: false,
         validUsername: false,
         validPassword: false,
@@ -27,8 +27,8 @@ class Signup extends Component {
         this.passwordMessage();
         this.validateEmail();
         this.validUsername();
-        this.validFirstname();
-        this.validLastname();
+        // this.validFirstname();
+        // this.validLastname();
     }
 
     handleInputChange = event => {
@@ -39,33 +39,33 @@ class Signup extends Component {
         });
     }
 
-    // make sure firstname is at least 3 characters
-    validFirstname = () => {
-        if (!this.state.validFirstname && this.props.firstname.length > 2) {
-            this.setState({
-                validFirstname: true
-            });
-        }
-        if (this.state.validFirstname && this.props.firstname.length < 2) {
-            this.setState({
-                validFirstname: false
-            });
-        }
-    }
+    // // make sure firstname is at least 3 characters
+    // validFirstname = () => {
+    //     if (!this.state.validFirstname && this.props.firstname.length > 2) {
+    //         this.setState({
+    //             validFirstname: true
+    //         });
+    //     }
+    //     if (this.state.validFirstname && this.props.firstname.length < 2) {
+    //         this.setState({
+    //             validFirstname: false
+    //         });
+    //     }
+    // }
 
-    // make sure lastname is at least 3 characters
-    validLastname = () => {
-        if (!this.state.validLastname && this.props.lastname.length > 2) {
-            this.setState({
-                validLastname: true
-            });
-        }
-        if (this.state.validLastname && this.props.lastname.length < 2) {
-            this.setState({
-                validLastname: false
-            });
-        }
-    }
+    // // make sure lastname is at least 3 characters
+    // validLastname = () => {
+    //     if (!this.state.validLastname && this.props.lastname.length > 2) {
+    //         this.setState({
+    //             validLastname: true
+    //         });
+    //     }
+    //     if (this.state.validLastname && this.props.lastname.length < 2) {
+    //         this.setState({
+    //             validLastname: false
+    //         });
+    //     }
+    // }
 
     // uses regex to check is email is valid
     validateEmail = () => {
