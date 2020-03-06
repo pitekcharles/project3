@@ -1,8 +1,8 @@
 import React from "react";
 
-function Button ({ children, onClick, type }) {
+function Button ({ children, onClick, type, data }) {
     return (
-    <button className={"button " + type}  onClick={onClick}>{children}</button>
+    <button className={"button " + type}  onClick={onClick} data-value={data}>{children}</button>
     );
 }
 

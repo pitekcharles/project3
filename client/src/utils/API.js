@@ -12,5 +12,8 @@ export default {
     },
     deleteCharacter: function(id) {
         return axios.delete("/api/characters/" + id)
+    },
+    updateCharacter: function(id, characterData) {
+        return axios.put("/api/characters/" + id, characterData)
     }
 }
