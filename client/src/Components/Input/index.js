@@ -1,6 +1,6 @@
 import React from "react";
 
-function Input ({ placeholder, dataValue, handleInputChange, value, name }){
+function Input ({ placeholder, dataValue, handleInputChange, value, name, type }){
     return (
         <div className="control">
             <input className="input" 
@@ -9,7 +9,8 @@ function Input ({ placeholder, dataValue, handleInputChange, value, name }){
                 placeholder={placeholder} 
                 onChange={handleInputChange}
                 value={value}
-                name={name} />
+                name={name}
+                type={type} />
         </div>
     )
 }
