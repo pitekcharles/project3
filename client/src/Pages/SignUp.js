@@ -16,8 +16,23 @@ class SignUp extends Component {
         password: false,
         confirmPassword: false,
         email: false,
+
     };
 
+    // componentDidMount() {
+    //     console.log(this.props);
+    //     this.validatePassword();
+    // }
+
+    // componentDidUpdate() {
+
+    //     // functions to check the input fields, and update the state if they are valid
+    //     this.confirmPassword();
+    //     this.validatePassword();
+    //     this.passwordMessage();
+    //     this.validateEmail();
+    //     this.validUsername();
+    // }
 
     handleInputChange = event => {
         const value = event.target.value;
@@ -26,6 +41,88 @@ class SignUp extends Component {
             [name]: value
         });
     };
+
+//  // uses regex to check is email is valid
+//     validateEmail = () => {
+//         let validEmail = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+//         let valid = validEmail.test(this.props.email);
+//         if (!this.state.validEmail && valid) {
+//             this.setState({
+//                 validEmail: true
+//             });
+//         }
+//         if (this.state.validEmail && !valid) {
+//             this.setState({
+//                 validEmail: false
+//             });
+//         }
+//     }
+
+    // // make sure username is at least 5 characters
+    // validUsername = ()=> {
+    //     if(this.props.username.length > 4  && !this.state.validUsername ) {
+    //         this.setState({
+    //             validUsername: true
+    //         });
+    //     }
+
+    //     if(this.props.username.length < 4  && this.state.validUsername) {
+    //         this.setState({
+    //             validUsername: false
+    //         });
+    //     }
+    // }
+
+    //  // checks is password meets regex test (at least 8 letters, 1 capital and 1 number)
+    //  validatePassword = ()=> {
+    //     let strongPassword = new RegExp(/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/);
+    //     let valid = strongPassword.test(this.props.password);
+    //     if (!this.state.validPassword && valid) {
+    //         this.setState({
+    //             validPassword: true
+    //         });
+    //     }
+    //     if (this.state.validPassword && !valid) {
+    //         this.setState({
+    //             validPassword: false,
+    //         });
+    //     }
+    // }
+
+    // // checks if 2 password fields match
+    // confirmPassword = () => {
+    //     if (!this.state.confirmPassword && this.state.password !== "" && this.state.password === this.props.password) {
+    //         this.setState({
+    //             confirmPassword: true
+    //         });
+    //     }
+    //     if (this.state.confirmPassword && this.state.password !== this.props.password) {
+    //         this.setState({
+    //             confirmPassword: false
+    //         });
+    //     }
+    // }
+
+    // // displays the password message if it exists
+    // passwordMessage = () => {
+    //     let message = "at least 8 letters, 1 capital & 1 number"
+    //     if (this.props.password !== "" && !this.state.validPassword && this.state.passwordMessage !== message) {
+    //         this.setState({
+    //             passwordMessage: message
+    //         });
+    //     }
+    //     if (this.state.validPassword && this.state.passwordMessage !== "") {
+    //         this.setState({
+    //             passwordMessage: ""
+    //         });
+    //     }
+    //     if (this.state.passwordMessage === message && this.props.password === "") {
+    //         this.setState({
+    //             passwordMessage: ""
+    //         });
+    //     } 
+    // }
+
 
     handleFormSubmit = event => {
         event.preventDefault();
