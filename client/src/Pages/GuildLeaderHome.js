@@ -34,7 +34,11 @@ class GuildLeaderHome extends Component {
             .then(response => {
                 var characterArray = [];
                 for (var i = 0; i < response.data.length; i++) {
-                    characterArray.push({ characterName: response.data[i].characterName, characterId: response.data[i]._id, attendanceScore: response.data[i].attendanceScore })
+                    characterArray.push({
+                        characterName: response.data[i].characterName,
+                        characterId: response.data[i]._id,
+                        attendanceScore: response.data[i].attendanceScore
+                    })
                 }
                 this.setState({ guildMembers: characterArray })
                 console.log(response);
@@ -73,7 +77,35 @@ class GuildLeaderHome extends Component {
 
     attendanceOnTime = event => {
         event.preventDefault();
-        
+        var id = event.target.getAttribute("data-value")
+        var characterArray = this.state.guildMembers.filter(item => item.characterId === id);
+        var newScore = characterArray[0].attendanceScore;
+        newScore = newScore + 1;
+        API.updateCharacter(id, { attendanceScore: newScore })
+            .then(res => this.populateAttendanceTracker())
+            .catch(err => console.log(err))
+    }
+
+    attendanceNoShow = event => {
+        event.preventDefault();
+        var id = event.target.getAttribute("data-value")
+        var characterArray = this.state.guildMembers.filter(item => item.characterId === id);
+        var newScore = characterArray[0].attendanceScore;
+        newScore = newScore - 1;
+        API.updateCharacter(id, { attendanceScore: newScore })
+            .then(res => this.populateAttendanceTracker())
+            .catch(err => console.log(err))
+    }
+
+    attendanceLate = event => {
+        event.preventDefault();
+        var id = event.target.getAttribute("data-value")
+        var characterArray = this.state.guildMembers.filter(item => item.characterId === id);
+        var newScore = characterArray[0].attendanceScore;
+        newScore = newScore - .5;
+        API.updateCharacter(id, { attendanceScore: newScore })
+            .then(res => this.populateAttendanceTracker())
+            .catch(err => console.log(err))
     }
 
     render() {
@@ -102,7 +134,7 @@ class GuildLeaderHome extends Component {
                     </div>
                 </div>
                 <div className="columns">
-                    <div className="column is-6 is-offset-1">
+                    <div className="column is-5 is-offset-1">
                         <div className="box">
                             <HeroWrapper>
                                 <HeroTitle>
@@ -116,11 +148,48 @@ class GuildLeaderHome extends Component {
                                         <li key={item.characterId}>
                                             <div className="box" >
                                                 <p>{item.characterName}</p>
-                                                <br />
                                                 <div className="field">
                                                     <div className="control">
-                                                        <Button type="is-success">On time</Button>
-                                                        <Button type="is-danger">No Show</Button>
+                                                        <div className="row">
+                                                            <div className="columns">
+                                                                <div className="column is-2">
+                                                                    <Button
+                                                                        type="is-success is-small"
+                                                                        data={item.characterId}
+                                                                        onClick={this.attendanceOnTime}
+                                                                    >
+                                                                        --On time--
+                                                                    </Button>
+                                                                </div>
+                                                                <div className="column is-2">
+                                                                    <Button
+                                                                        type="is-warning is-small"
+                                                                        data={item.characterId}
+                                                                        onClick={this.attendanceLate}
+                                                                    >
+                                                                        ----Late----  
+                                                                    </Button>
+                                                                </div>
+                                                                <div className="column is-2">
+                                                                    <Button
+                                                                        type="is-warning is-small"
+                                                                        data={item.characterId}
+                                                                        onClick={this.attendanceLate}
+                                                                    >
+                                                                        Leave Early
+                                                                    </Button>
+                                                                </div>
+                                                                <div className="column is-2">
+                                                                    <Button
+                                                                        type="is-danger is-small"
+                                                                        data={item.characterId}
+                                                                        onClick={this.attendanceNoShow}
+                                                                    >
+                                                                        -No Show-
+                                                                    </Button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -129,11 +198,9 @@ class GuildLeaderHome extends Component {
                                     </>
                                 ))}
                             </ul>
-                            <br />
-                            <Button onClick={this.handleFormSubmit}>Submit</Button>
                         </div>
                     </div>
-                    <div className="column is-4">
+                    <div className="column is-5">
                         <div className="box">
                             <HeroWrapper>
                                 <HeroTitle>
@@ -159,16 +226,7 @@ class GuildLeaderHome extends Component {
                     </div>
                 </div>
                 <div className="columns">
-                    <div className="column is-5 is-offset-1">
-                        <div className="box">
-                            <HeroWrapper>
-                                <HeroTitle>
-                                    Add new character
-                                </HeroTitle>
-                            </HeroWrapper>
-                        </div>
-                    </div>
-                    <div className="column is-5">
+                    <div className="column is-10 is-offset-1">
                         <div className="box">
                             <HeroWrapper>
                                 <HeroTitle>
