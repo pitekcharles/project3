@@ -22,7 +22,5 @@ guild table
     server name
     guild master id
 
+This application is designed to be a one stop shop for all things gaming. Upon entering your login credentials, you will be able to mark yourself present for any and all guild related activities. The Guild Master (GM) will be able to post anything that may be applicable to the group as a whole.  
 
-switch to buttons to adjust the attendence score, one button adds, one button subtracts. component map to populate the page, already in place easy
-take old attendence score and push it to the db, remove that person from the state to reload section (added bonus) also add a button to populate attendence so 
-it does not have issues/ it is not always there
