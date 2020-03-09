@@ -2,7 +2,7 @@
   "name": "mern",
   "version": "1.0.0",
   "description": "",
-  "engines": {"node": "12.13.0"},
+  "engines": {"node": "13.10.1"},
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
